@@ -78,3 +78,34 @@ Det eneste som nå gjenstår er å faktisk sende endringene til Github:
 `git push`
 
 Du kan nå gå inn i repositoriet på din bruker på github.com og se at endringene du har gjort i filene ligger der.
+
+
+## Vanlige feil og hvordan fikse dem
+
+
+### Permission denied (publickey)
+Når du prøver å pushe kan du få feilmelding: 
+`Permission denied (publickey)`
+
+Dette er et SSH problem, og kan bety at du har clonet repoet med SSH istedenfor https. 
+For å løse problemet har du to valg;
+* Clone repoet på nytt ved bruk av https, kopiere over endrede filer i den nye clonede mappen
+* Sette opp SSH på mac/windows i terminalen (anbefales ikke ettersom det kan være vanskelig å få til). Du har en guide på hvordan dette gjøres [her](https://www.inmotionhosting.com/support/server/ssh/how-to-add-ssh-keys-to-your-github-account/)
+
+
+
+### Tip of your current branch is behind its remote counterpart
+Når du prøver å pushe kan du få feilmelding: 
+
+`Updates were rejected because the tip of your current branch is behind its remote counterpart. Integrate the remote changes (e.g. hint: 'git pull ...') before pushing again.`
+
+Dette skjer fordi kodeversjonen som ligger i Github (remote branch) har endringer som ikke du har på din lokale kodeversjon (local branch).
+Det kan skje enten ved at det har kommet inn commits på den remote branchen som ikke du har pullet ned, eller at noen har endret historien på remote branch (vanligvis en form for rebase).
+
+For å hente ned endringene fra remote branch kan du kjøre en:
+`git pull`
+
+
+Om du her skulle få beskjed om
+git pull origin FixForBug
+git push origin FixForBug
