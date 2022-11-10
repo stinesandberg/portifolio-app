@@ -24,8 +24,6 @@ Skriv "cd" foran filstien som har dukket opp. Eks: `cd C:\Documents\NTNU\` eller
 Trykk Enter, og du er nå inni mappen du lagde.
 
 
-xxx
-
 Dersom det ikke fungerer å dra mappen inn i terminal-vinduet kan du navigere deg frem til den manuelt ved bruk av `cd` og `ls`.
 Les dokumentasjonen [her for Mac](https://www.macworld.com/article/221277/command-line-navigating-files-folders-mac-terminal.html) og [her for Windows](https://www.howtogeek.com/659411/how-to-change-directories-in-command-prompt-on-windows-10/).
 
@@ -99,13 +97,32 @@ Når du prøver å pushe kan du få feilmelding:
 
 `Updates were rejected because the tip of your current branch is behind its remote counterpart. Integrate the remote changes (e.g. hint: 'git pull ...') before pushing again.`
 
-Dette skjer fordi kodeversjonen som ligger i Github (remote branch) har endringer som ikke du har på din lokale kodeversjon (local branch).
+Dette skjer fordi kodeversjonen som ligger i Github (remote branch) har endringer som du ikke har på din lokale kodeversjon (local branch).
 Det kan skje enten ved at det har kommet inn commits på den remote branchen som ikke du har pullet ned, eller at noen har endret historien på remote branch (vanligvis en form for rebase).
 
+⚠️  Dersom du er 100% sikker på at det ikke er noen endringer på remote branch, og at du faktisk har clonet ned riktig repository, så kan du kjøre `git push -f`.  
+Dette vil force alle dine lokale endringer opp på remote branch og dermed overskrive eventuelle endringer som ligger på remote branch.
+
+
+Dersom du derimot er usikker på om det er endringer på remote branch som du vil ha, så prøver du heller å hente ned endringene før du pusher. 
 For å hente ned endringene fra remote branch kan du kjøre en:
 `git pull`
 
+eller 
+`git pull origin [name of branch]`
+f.eks: `git pull origin main`
 
-Om du her skulle få beskjed om
-git pull origin FixForBug
-git push origin FixForBug
+
+### 403 Error
+Hvis du får en eller annen 403 error betyr det at du ikke er autentisert. 
+
+
+Dersom du får opp at du må skrive inn brukernavn og passord i terminalen når du prøver å kjøre en git push så vil brukernavnet være github brukernavnet deres, og passordet vil være en Personal Access Token. 
+Du må derfor inn på Github kontoen din i browseren og generere en Personal Access Token. Dette gjøres ved å trykke på profilbildet i hjørnet -> Settings -> Developer Settings (helt nederst i menyen på venstre side) -> Personal Access Tokens -> Tokens (classic) -> Generate new token
+Når du lager en ny token må du passe på at du krysser av på at du skal ha alle rettigheter på alt. 
+
+
+Om du ikke får opp at du må skrive inn brukernavn og passord, så må du først sette hva slags autentiseringsmetode som skal brukes: 
+`git remote set-url origin [samme https link du bruker for å clone prosjektet]`
+
+Og når du så kjører `git push` så skal det dukke opp en promt til å skrive inn brukernavn og passord. Du bruker da fremgangsmåten over med github brukernavn og Personal Access Token.
