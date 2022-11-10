@@ -23,6 +23,9 @@ Filstien til mappen vil dukke opp i terminalen. Eks: `C:\Documents\NTNU\` eller 
 Skriv "cd" foran filstien som har dukket opp. Eks: `cd C:\Documents\NTNU\` eller `cd /Users/stinesandberg/Jobb/Ada\ NTNU`
 Trykk Enter, og du er nå inni mappen du lagde.
 
+
+xxx
+
 Dersom det ikke fungerer å dra mappen inn i terminal-vinduet kan du navigere deg frem til den manuelt ved bruk av `cd` og `ls`.
 Les dokumentasjonen [her for Mac](https://www.macworld.com/article/221277/command-line-navigating-files-folders-mac-terminal.html) og [her for Windows](https://www.howtogeek.com/659411/how-to-change-directories-in-command-prompt-on-windows-10/).
 
