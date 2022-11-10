@@ -126,3 +126,13 @@ Om du ikke får opp at du må skrive inn brukernavn og passord, så må du førs
 `git remote set-url origin [samme https link du bruker for å clone prosjektet]`
 
 Og når du så kjører `git push` så skal det dukke opp en promt til å skrive inn brukernavn og passord. Du bruker da fremgangsmåten over med github brukernavn og Personal Access Token.
+
+
+### Fatal: Not a git Repository (or any of the parent directories)
+En annen vanlig feil er at man er inne i en mappe som ikke har en generert .git fil. Dersom du har clonet et repo fra github(hvilket du skal ha gjort i dette prosjektet) så er .git filen allerede generert for deg, og denne feilen tyder da på at du ikke er i riktig directory i terminalen.
+
+Bruk `cd [filsti til repositoriet på maskinen din]` for å komme inn i riktig mappe.  
+
+
+### Ressursser for feilsøking
+[Mest vanlige feilmeldinger i git og hvordan fikse dem](https://betterprogramming.pub/common-git-errors-2e379516dc65)
